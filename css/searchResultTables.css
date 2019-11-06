@@ -1,0 +1,59 @@
+table {
+    width:575px;
+	font-size: 12px;
+	font-family: verdana;
+} 
+table, th, td {
+    border: 1px solid #1b455e;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+table#t01 tr:nth-child(even) {
+    background-color: #aed4eb;
+}
+table#t01 tr:nth-child(odd) {
+   background-color:#ffffff;
+}
+table#t01 th	{
+    background-color: #1b455e;
+    color: white;
+}
+
+table#t01 tbody,
+table#t01 thead {
+	display:block;
+	width:100%;
+}
+
+table#t01 tbody {
+	height: 100%;
+	overflow-y:auto;
+	overflow-x: hidden;
+}
+
+table#t01 totalColumn tr {
+	background-color: white;
+    color: red;
+}
+
+.numbers {
+        text-align: right;
+    }
+.r1 {
+	width:100px;
+}
+
+.r2 {
+	width:200px;
+}
+
+.r3 {
+	width:300px;
+}
+
+.r4 {
+	width:100px;
+}

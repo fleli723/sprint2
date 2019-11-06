@@ -1,0 +1,93 @@
+.nav li {
+	display:inline-block;
+}
+
+body {
+	background-color: #c9c9c9;
+}
+ 
+li a {
+	text-decoration: none;
+	color: white;
+}
+
+ul {
+	display: flex;
+	justify-content: flex-start;
+	background-color: #1b455e;
+	border-radius: 25px;
+}
+
+li {
+	padding: 10px 20px 10px 20px;
+	font-family: Arial;
+}
+
+li a {
+	padding: 10px 20px 10px 20px;
+	border-radius: 25px;
+}
+
+li a:hover {
+  background-color: black;
+}
+
+h1 {
+	color: white;
+	font-family: verdana;
+}
+
+.content {
+	font-family: verdana;
+	padding-left: 2em;
+	padding-right: 2em;
+	
+}
+
+h3 {
+	font-family: verdana;
+}
+
+.topbar {
+	border-radius: 25px;
+	background: #327ba8;
+	padding: 20px;
+}
+
+form {
+	padding-top: 1em;
+}
+
+.button {
+	margin-top: 2em;
+	background-color: #327ba8;
+	border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+	border-radius: 25px;
+}
+
+.formboxes {
+	margin-top: 2em;
+	border-radius: 25px;
+	border: 5px solid #327ba8;
+	padding: 20px;
+	width: 25%;
+}
+
+h2 .action {
+	font-family: verdana;
+	display: flex;
+	justify-content: center;
+}
+
+input[type=text] {
+  border: 2px solid #327ba8;
+  border-radius: 4px;
+}
