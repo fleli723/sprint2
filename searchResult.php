@@ -12,16 +12,15 @@
 *            sanitization,                                      *
 *                                                               *
 ****************************************************************/
-require_once("../classes/DB.class.php");
-require_once("../classes/Template.php");
+require_once("classes/DB.class.php");
+require_once("classes/Template.php");
 $page = new Template("Action Page");
-$page->addHeadElement('<link rel="stylesheet" type="text/css" href="../css/stylesheet.css">');
-$page->addHeadElement('<link rel="stylesheet" type="text/css" href="../css/searchResultTables.css">');
+$page->addHeadElement('<link rel="stylesheet" type="text/css" href="css/stylesheet.css">');
+$page->addHeadElement('<link rel="stylesheet" type="text/css" href="css/searchResultTables.css">');
 $page->finalizeTopSection();
 $page->finalizeBottomSection();
 print $page->getTopSection();
 include("topNavBar.php");
-
 if(isset($_POST['Search_Bar_Name'])) { //and the search variable is set
 	//New datbase connection
 	$con = new DB(); 

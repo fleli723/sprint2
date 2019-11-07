@@ -18,16 +18,15 @@
 $lifetime = 60 * 60 * 2;
 session_set_cookie_params($lifetime,'/');
 session_start();
-require_once("../classes/DB.class.php");
-require_once("../classes/Template.php");
+require_once("classes/DB.class.php");
+require_once("classes/Template.php");
 $page = new Template("Survey Page");
-$page->addHeadElement('<link rel="stylesheet" type="text/css" href="../css/stylesheet.css">');
-$page->addHeadElement("<script src='../js/survey.js'></script>");
+$page->addHeadElement('<link rel="stylesheet" type="text/css" href="css/stylesheet.css">');
+$page->addHeadElement("<script src='js/survey.js'></script>");
 $page->finalizeTopSection();
 $page->finalizeBottomSection();
 print $page->getTopSection();
 include("topNavBar.php");
-
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$errors = array();  //sets our survey errors to an array
 	//check for errors
@@ -75,8 +74,7 @@ print	'
 			<span>Email:</span><br><br>
 			<input type="text" id="txtEmail" name="email" placeholder="Enter a valid Email">
 			<br>
-		</div>
-		
+		</div>		
 		<div class="formboxes" id="Majors">
 			<span>What is your major?</span><br><br>
 			<input type="checkbox" id="chkMajor1" name="major[0]" value="CIS-AppDev"> CIS-AppDev<br>
@@ -85,8 +83,7 @@ print	'
 			<input type="checkbox" id="chkMajor4" name="major[3]" value="WD"> WD<br>
 			<input type="checkbox" id="chkMajor5" name="major[4]" value="HTI"> HTI<br>
 			<input type="checkbox" id="chkMajor6" name="major[5]" value="Other"> Other<br>
-		</div>
-			
+		</div>		
 		<div class="formboxes">
 			<span>What grade do you expect to receive in CNMT 310?</span><br><br>
 			
@@ -95,8 +92,7 @@ print	'
 			<input type="radio" name="grade" id="rdoGradeC" value="C"> C<br>
 			<input type="radio" name="grade" id="rdoGradeD" value="D"> D<br>
 			<input type="radio" name="grade" id="rdoGradeF" value="F"> F<br>
-		</div>
-			
+		</div>			
 		<div class="formboxes">
 			<span>What is your favorite pizza topping?</span><br><br>
 			<input type="radio" name="pizzaTopping" id="rdoPizzaToppingPepperoni" value="Pepperoni"> Pepperoni<br>
@@ -104,11 +100,9 @@ print	'
 			<input type="radio" name="pizzaTopping" id="rdoPizzaToppingBacon" value="Bacon"> Bacon<br>
 			<input type="radio" name="pizzaTopping" id="rdoPizzaToppingMushroom" value="Mushroom"> Mushroom<br>
 			<input type="radio" name="pizzaTopping" id="rdoPizzaToppingPineapple" value="Pineapple"> Pineapple<br>
-		</div>
-			
+		</div>			
 		<br>	
-		<input class="button" type="submit" value="Submit" onclick="return validateForm()">
-			
+		<input class="button" type="submit" value="Submit" onclick="return validateForm()">			
 	</form>
 </div>';
 print $page->getBottomSection();
