@@ -27,6 +27,7 @@ if(isset($_POST['Search_Bar_Name']) && $_POST['Search_Bar_Name'] != '' && $_POST
 	//New datbase connection
 	$con = new DB(); 
 	//Check the connection
+	print 	'<div class="content">';
 	if (!$con->getConnStatus()) {
 		print "\n\nAn error has occurred with connection\n";
 		exit;
@@ -72,6 +73,7 @@ else
 //Show the button to search again
 print '<form class="formStyle" name="frmSearchResults" id="searchResults" method ="Post" action="search.php">
 	<button type="submit" class="button" id="btnSubmit" name="btnSubmit">Search Again</button>	
-</form>';
+</form>
+</div>';
 print $page->getBottomSection();
 ?>

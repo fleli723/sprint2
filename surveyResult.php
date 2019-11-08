@@ -26,7 +26,6 @@ print $page->getTopSection();
 extract($_POST); //needed to extract the $_POST for the checkbox consistency check to boolean values
 include("topNavBar.php");
 if(isset($email) && filter_var($email,FILTER_VALIDATE_EMAIL) && !empty($major) && !empty($grade) && !empty($pizzaTopping)) { //and the email variable is set
-	print 'YOURE INSIDE THE GOOD IF';
 	//New datbase connection
 	$con = new DB();
 	//Check the connection
@@ -118,33 +117,43 @@ if(isset($email) && filter_var($email,FILTER_VALIDATE_EMAIL) && !empty($major) &
 }// end isset
 else
 {
-	$errors = NULL;  //sets our survey errors to an array
-	var_dump($_POST);
-	print_r($_POST);
-	print 'THIS IS OUR EMAIL ' . $email;
+	//$errors = NULL;  //sets our survey errors to an array
+	//var_dump($_POST);
+	//print_r($_POST);
+	//$email = "";
+	//print 'THIS IS OUR EMAIL :' . $email . ':';
+	//$email = $_POST['email'];
+	
 	//check for errors
 	//Validate E-mail (Make sure it is not blank and a valid E-mail Address.)
-	if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
-		$errors['email']= "PHP - Enter a valid email address";
-	}//end if
-	
-	//Validate the Major checkboxes
-	if (empty($major)) {
-		$errors['major']= "PHP - You must select at least one major.";
-	}//end if
-	
-	//Validate the Grade Radio Buttons
-	if (empty($grade)) {
-		$errors['grade']= "PHP - You must select a grade.";
-	}//end if
-	
-	//Validate the Pizza Topping radio buttons.
-	if (empty($pizzaTopping)) {
-		$errors['pizzaTopping']= "PHP - You must select a pizza topping.";
-	}//end if
-	echo '<script>alert(" '.implode("\\n", $errors).' "); window.location= "survey.php";</script>';
-	
-	//header('Location: survey.php');
+	//if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+	//if(isset($email)) {
+	//	$errors['email']= "PHP - Enter a valid email address";
+	//}//end if
+	//
+	////Validate the Major checkboxes
+	//if (empty($major)) {
+	//	$errors['major']= "PHP - You must select at least one major.";
+	//}//end if
+	//
+	////Validate the Grade Radio Buttons
+	//if (empty($grade)) {
+	//	$errors['grade']= "PHP - You must select a grade.";
+	//}//end if
+	//
+	////Validate the Pizza Topping radio buttons.
+	//if (empty($pizzaTopping)) {
+	//	$errors['pizzaTopping']= "PHP - You must select a pizza topping.";
+	//}//end if
+	//echo '<script>alert(" '.implode("\\n", $errors).' "); </script>';
+	//echo '<script>alert("Please fill out the form entirely"); </script>';
+	print 	'<div class="content">
+				<h2>Please fill out the form entirely</h2>'; 
+
+	print 	'<form class="formStyle" name="frmSurveyResults" id="surveyResults" method ="post" action="survey.php">
+				<button type="submit" class="button" id="btnSubmit" name="btnSubmit">Search Again</button>	
+			</form>
+			</div>';
 }	
 print $page->getBottomSection();
 ?>
