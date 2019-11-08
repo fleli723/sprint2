@@ -1,6 +1,5 @@
 <?php
 require_once("classes/Template.php");
-require_once("functions/searchValidation.php");
 $page = new Template("Search Page");
 $page->addHeadElement('<script src="js/search.js"></script>');
 $page->addHeadElement('<link rel="stylesheet" type="text/css" href="css/stylesheet.css">');

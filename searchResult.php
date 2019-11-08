@@ -9,8 +9,8 @@
 * Changelog:                                                    *
 * 20190926 - Original code constructed                          *
 * 20191031 - included the DB Class, connection error checking,  *
-*            sanitization,                                      *
-*                                                               *
+*            sanitization                                       *
+* 20191107 - corrected php catch                                *
 ****************************************************************/
 require_once("classes/DB.class.php");
 require_once("classes/Template.php");
@@ -21,7 +21,9 @@ $page->finalizeTopSection();
 $page->finalizeBottomSection();
 print $page->getTopSection();
 include("topNavBar.php");
-if(isset($_POST['Search_Bar_Name'])) { //and the search variable is set
+
+
+if(isset($_POST['Search_Bar_Name']) && $_POST['Search_Bar_Name'] != '' && $_POST['Search_Bar_Name'] != ' ') { //checks if post is set, and not an empty string or a single space
 	//New datbase connection
 	$con = new DB(); 
 	//Check the connection
@@ -30,8 +32,7 @@ if(isset($_POST['Search_Bar_Name'])) { //and the search variable is set
 		exit;
 	}else{
 		//Sanitize the user input
-		$unfilteredSearchTerm = $con->dbESC($_POST['Search_Bar_Name']);
-		$searchTerm = filter_var($unfilteredSearchTerm, FILTER_SANITIZE_STRING);
+		$searchTerm = $con->dbESC($_POST['Search_Bar_Name']);
 		//query the db for the search results	
 		$query = "SELECT * FROM albums WHERE albums.albumArtist LIKE '%$searchTerm%' or albums.AlbumTitle LIKE '%$searchTerm%'";
 		$result = $con->dbCall($query);
@@ -63,6 +64,11 @@ if(isset($_POST['Search_Bar_Name'])) { //and the search variable is set
 		$result = false; //Reset result when done with it to prevent interfering with later calls.
 	}//endif
 }//end if
+else
+{
+	$errors['search'] = "PHP - You must enter a search term.";
+	echo '<script>alert(" '.implode("\\n", $errors).' ");</script>'; //replace alerts with something different for sprint2
+}
 //Show the button to search again
 print '<form class="formStyle" name="frmSearchResults" id="searchResults" method ="Post" action="search.php">
 	<button type="submit" class="button" id="btnSubmit" name="btnSubmit">Search Again</button>	
