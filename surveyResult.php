@@ -14,22 +14,17 @@
 *                                                               *
 ****************************************************************/
 session_start();
-require_once("../classes/DB.class.php");
-require_once("../classes/Template.php");
+require_once("classes/DB.class.php");
+require_once("classes/Template.php");
 $page = new Template("Survey Results Page");
-$page->addHeadElement('<link rel="stylesheet" type="text/css" href="../css/stylesheet.css">');
+$page->addHeadElement('<link rel="stylesheet" type="text/css" href="css/stylesheet.css">');
 $page->finalizeTopSection();
 $page->finalizeBottomSection();
 print $page->getTopSection();
 //convert the session variables to a $_POST
-foreach ($_SESSION as $key => $value) {
-			${$key} = $value;
-			$_POST[$key] = $value;
-		}//end if
-session_destroy(); //destroys the Session
-extract($_POST); //needed to extract the $_POST for the checkbox consistency check to boolean values
-include("topNavBar.php");
 
+//extract($_POST); //needed to extract the $_POST for the checkbox consistency check to boolean values
+include("topNavBar.php");
 if(isset($_POST['email'])) { //and the email variable is set
 	//New datbase connection
 	$con = new DB(); 
