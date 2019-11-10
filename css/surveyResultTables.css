@@ -1,5 +1,5 @@
 table {
-    width:575px;
+    width:100%;
 	font-size: 12px;
 	font-family: verdana;
 } 
@@ -43,11 +43,11 @@ table#t01 totalColumn tr {
         text-align: right;
     }
 .r1 {
-	width:100px;
+	width:7%;
 }
 
 .r2 {
-	width:200px;
+	width:15%;
 }
 
 .r3 {

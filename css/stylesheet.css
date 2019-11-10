@@ -41,7 +41,6 @@ h1 {
 	font-family: verdana;
 	padding-left: 2em;
 	padding-right: 2em;
-	
 }
 
 h3 {
@@ -52,6 +51,7 @@ h3 {
 	border-radius: 25px;
 	background: #327ba8;
 	padding: 20px;
+	font-family: verdana;
 }
 
 form {
@@ -73,6 +73,19 @@ form {
 	border-radius: 25px;
 }
 
+.buttonLog {
+	background-color: #1b455e;
+	border-radius: 25px;
+	padding: 10px 20px;
+	color: white;
+	cursor: pointer;
+}
+
+.loginText {
+	border: 2px solid #1b455e;
+	padding: 5px 1em;
+}
+
 .formboxes {
 	margin-top: 2em;
 	border-radius: 25px;
@@ -87,7 +100,14 @@ h2 .action {
 	justify-content: center;
 }
 
-input[type=text] {
+input {
   border: 2px solid #327ba8;
   border-radius: 4px;
+}
+
+.login {
+	display: flex;
+	justify-content: space-between;
+	margin: 1em 0px 1em 0px;
+	color: white;
 }

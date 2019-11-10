@@ -48,6 +48,7 @@ if(isset($_POST['Search_Bar_Name']) && $_POST['Search_Bar_Name'] != '' && $_POST
 				<th class = "r2">Album Artist</th>
 				<th class = "r3">Album Title</th>
 				<th class = "r4">Album Duration</th>
+				<th class = "r5"></th>
 			</tr>
 			</thead><tbody>
 			<tbody>';
@@ -57,6 +58,7 @@ if(isset($_POST['Search_Bar_Name']) && $_POST['Search_Bar_Name'] != '' && $_POST
 				print ' <td class = "r2">';echo $row["albumArtist"]; print'</td>';
 				print ' <td class = "r3">';echo $row["albumTitle"];  print' </td>';
 				print ' <td class = "r4">';echo $row["duration"];  print' </td>';
+				print ' <td class = "r5"> <a href="'; echo $row["albumLink"];  print'"> Buy Album</a> </td>';
 				print' </tr>';
 			}//end foreach
 			print '</tbody>
@@ -67,8 +69,10 @@ if(isset($_POST['Search_Bar_Name']) && $_POST['Search_Bar_Name'] != '' && $_POST
 }//end if
 else
 {
-	$errors['search'] = "PHP - You must enter a search term.";
-	echo '<script>alert(" '.implode("\\n", $errors).' ");</script>'; //replace alerts with something different for sprint2
+	print '<div class="content">
+	<h2> Please click "Search" from the top bar and fill out the field to search</h2>';
+	//$errors['search'] = "PHP - You must enter a search term.";
+	//echo '<script>alert(" '.implode("\\n", $errors).' ");</script>'; //replace alerts with something different for sprint2
 }
 //Show the button to search again
 print '<form class="formStyle" name="frmSearchResults" id="searchResults" method ="Post" action="search.php">
