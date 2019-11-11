@@ -13,7 +13,7 @@
 * 20191101 - Added Session Variables                            *
 *                                                               *
 ****************************************************************/
-//session_start();
+session_start();
 require_once("classes/DB.class.php");
 require_once("classes/Template.php");
 

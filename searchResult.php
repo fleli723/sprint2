@@ -12,6 +12,7 @@
 *            sanitization                                       *
 * 20191107 - corrected php catch                                *
 ****************************************************************/
+session_start();
 require_once("classes/DB.class.php");
 require_once("classes/Template.php");
 $page = new Template("Action Page");
@@ -58,7 +59,7 @@ if(isset($_POST['Search_Bar_Name']) && $_POST['Search_Bar_Name'] != '' && $_POST
 				print ' <td class = "r2">';echo $row["albumArtist"]; print'</td>';
 				print ' <td class = "r3">';echo $row["albumTitle"];  print' </td>';
 				print ' <td class = "r4">';echo $row["duration"];  print' </td>';
-				print ' <td class = "r5"> <a href="'; echo $row["albumLink"];  print'"> Buy Album</a> </td>';
+				print ' <td class = "r5"> <a href="'; echo $row["albumLink"];  print' target = "_blank"> Buy Album</a> </td>';
 				print' </tr>';
 			}//end foreach
 			print '</tbody>

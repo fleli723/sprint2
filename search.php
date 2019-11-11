@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("classes/Template.php");
 $page = new Template("Search Page");
 $page->addHeadElement('<script src="js/search.js"></script>');

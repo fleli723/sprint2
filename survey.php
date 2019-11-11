@@ -14,6 +14,7 @@
 * 20191101 - Added php class form validation                    *
 *                                                               *
 ****************************************************************/
+session_start();
 require_once("classes/DB.class.php");
 require_once("classes/Template.php");
 require_once("functions/surveyValidation.php");

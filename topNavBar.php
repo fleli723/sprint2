@@ -1,30 +1,34 @@
 <?php
+
 print 	'<div class="topbar"> 
 			<div class ="login">
 				<h1> CNMT 310 Sprint 2 Assignment</h1> ';
 			
-//SWITCH MODE TO SESSION
-$mode = 2;
+
 
 //print login
-if ($mode ==1) 
+if (!isset($_SESSION['realname'])) 
 {
-	print  '<form name="userSearchBarForm" class = "login" action="searchResult.php"  method="post">
+	print  '<form name="frmUserLogin" class = "login" action="loginResult.php"  method="post">
 				<input type="text" class = "loginText" id="username" name="usernameInput" placeholder="Username">
 				<input type="password" class = "loginText" id="password" name="passwordInput" placeholder="Password">
 				<input class="buttonLog" type="submit" value="Login" id="BtnSubmit">
 			</form>
+			
 			</div>';	
 }
-
-if ($mode == 2) 
+else
 {
-	print	'<form name="userSearchBarForm" action="index.php"  method="post">
-					<span>Welcome, ' . $mode . ' </span>
+	print	'<form name="frmUserLogin" action="logout.php"  method="post">
+					<span>Welcome, ' . $_SESSION['realname'] . ' </span>
 					<input class="buttonLog" type="submit" value="Logout" id="BtnSubmit">
 				</form>
-			</div>';	
+			</div>';
+
+	
 }
+
+
 
 //print logout					
 					
@@ -40,4 +44,6 @@ print		'<ul class="nav">
 						
 print		'</ul>
 		</div>';
+		
+
 ?>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("classes/Template.php");
 $page = new Template("Privacy Page");
 $page->addHeadElement('<link rel="stylesheet" type="text/css" href="css/stylesheet.css">');
