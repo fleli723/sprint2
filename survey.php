@@ -20,7 +20,7 @@ require_once("classes/Template.php");
 require_once("functions/surveyValidation.php");
 $page = new Template("Survey Page");
 $page->addHeadElement('<link rel="stylesheet" type="text/css" href="css/stylesheet.css">');
-//$page->addHeadElement("<script src='js/survey.js'></script>");
+$page->addHeadElement("<script src='js/survey.js'></script>");
 $page->finalizeTopSection();
 $page->finalizeBottomSection();
 print $page->getTopSection();
