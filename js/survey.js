@@ -1,5 +1,8 @@
+
 function validateForm() 
 {
+	
+	
 	let hasEmail = false;
 	let hasMajor = false;
 	let hasLetterGrade = false;
@@ -8,15 +11,15 @@ function validateForm()
 	//email validation
 	let email = document.forms["survey"]["email"].value;
     if (email == "") {
-        alert("JS - Email must be filled out");
+		document.getElementById("errorEmail").innerHTML ="<b style='color: red'>This is a required field</b>";	
+		
     } else {
+		document.getElementById("errorEmail").innerHTML ="<b style='color: red'></b>";
         hasEmail = true;
     }
 	
 	//major validation
-	var checked = 0;
-    //Create an Array.
-    var selected = new Array();
+	var checked = 0;    
  
     //Reference the checkbox form div.
     var Majors = document.getElementById("Majors");
@@ -28,10 +31,14 @@ function validateForm()
     for (var i = 0; i < chks.length; i++) {
         if (chks[i].checked) {
             hasMajor = true;
+			document.getElementById("errorMajors").innerHTML ="<b style='color: red'></b>";
         }//endif
     }//endfor
-	if (hasMajor == false) {
-		alert("JS - You must declare a major");
+	if (hasMajor == false) 
+	{
+		//document.getElementById("errorMajors").innerHTML ="<b style='color: red'></b>";
+		document.getElementById("errorMajors").innerHTML ="<b style='color: red'>Select a Major</b>";			
+		
 	}//endif
 	
 	//grade validation
@@ -39,10 +46,14 @@ function validateForm()
     for (let i = 0; i < grade.length; i++) {
         if (grade[i].checked) {
             hasLetterGrade = true;
+			document.getElementById("errorGrade").innerHTML ="<b style='color: red'></b>";
         }
     }
     if (hasLetterGrade == false) {
-        alert("JS - What grade do you expect to get?");
+		
+		document.getElementById("errorGrade").innerHTML ="<b style='color: red'>This is a required field</b>";		
+		
+        //alert("JS - What grade do you expect to get?");
     }
 	
 	//pizza topping validation
@@ -50,9 +61,17 @@ function validateForm()
     for (let i = 0; i < pizza.length; i++) {
         if (pizza[i].checked) {
             hasPizzaTopping = true;
+			document.getElementById("errorPizza").innerHTML ="<b style='color: red'></b>";
         }
     }
     if (hasPizzaTopping == false) {
-        alert("JS - What your favorite pizza topping is of upmost importance!");
+		document.getElementById("errorPizza").innerHTML ="<b style='color: red'>What your favorite pizza topping is of upmost importance!</b>";		
+		
+        
     }
+	if((hasEmail && hasMajor)== false || (hasLetterGrade && hasPizzaTopping) == false)
+	{
+		return false;
+	}
+	
 }
