@@ -1,0 +1,18 @@
+John Doe
+un = john@doe.com
+ps = CNMTadmin310
+ps = $2y$10$BvMnY482r7jJrKqHz7NYLeASEhAiXHuon4QdxA00LVnzGiwnfPAD.
+Admin
+
+Jane Doe
+un = jane@doe.com
+ps = CNMTuser1310
+ps = $2y$10$QQyuBhQBU0CgOEm6VLoMjOsZzdb9/kArzQMHBFnvGUecvfTTCqEgO
+User
+
+Donald Duck
+un = donald@duck.com
+ps = CNMTuser2310
+ps = $2y$10$ZqB1nIvVlmMCa4N6553UBO6nkjC7Qx/wv63vMOGOGF3Z22F4gQuOK
+User
+

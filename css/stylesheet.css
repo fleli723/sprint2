@@ -37,10 +37,16 @@ h1 {
 	font-family: verdana;
 }
 
-.content {
+#content {
 	font-family: verdana;
 	padding-left: 2em;
 	padding-right: 2em;
+	position: relative;
+	min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;    /* Footer height */
 }
 
 h3 {
@@ -54,6 +60,21 @@ h3 {
 	font-family: verdana;
 }
 
+.footer {
+	clear:both;
+	text-align:center;
+	vertical-align:center;
+	border-radius: 25px;
+	background: #327ba8;
+	padding: 20px;
+	font-family: verdana;
+	position: absolute;
+	bottom: 0;
+	width: 96%;
+	height: 2.5rem;
+	color:#ffffff;
+}	
+	
 form {
 	padding-top: 1em;
 }

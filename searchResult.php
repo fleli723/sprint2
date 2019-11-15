@@ -23,8 +23,8 @@ $page->finalizeBottomSection();
 print $page->getTopSection();
 include("topNavBar.php");
 
-
-if(isset($_POST['Search_Bar_Name']) && $_POST['Search_Bar_Name'] != '' && $_POST['Search_Bar_Name'] != ' ') { //checks if post is set, and not an empty string or a single space
+//checks if post is set, and not an empty string or a single space
+if(isset($_POST['Search_Bar_Name']) && $_POST['Search_Bar_Name'] != '' && $_POST['Search_Bar_Name'] != ' ') { 
 	//New datbase connection
 	$con = new DB(); 
 	//Check the connection
@@ -59,7 +59,7 @@ if(isset($_POST['Search_Bar_Name']) && $_POST['Search_Bar_Name'] != '' && $_POST
 				print ' <td class = "r2">';echo $row["albumArtist"]; print'</td>';
 				print ' <td class = "r3">';echo $row["albumTitle"];  print' </td>';
 				print ' <td class = "r4">';echo $row["duration"];  print' </td>';
-				print ' <td class = "r5"> <a href="'; echo $row["albumLink"];  print' target = "_blank"> Buy Album</a> </td>';
+				print ' <td class = "r5"> <a href="'; echo $row["albumLink"];  print' target = "_blank"><img src="images/amazon-badge.png" width="150px" height="20px" title ="Buy at Amazon" alt="Buy at Amazon"></a> </td>';
 				print' </tr>';
 			}//end foreach
 			print '</tbody>
@@ -72,13 +72,11 @@ else
 {
 	print '<div class="content">
 	<h2> Please click "Search" from the top bar and fill out the field to search</h2>';
-	//$errors['search'] = "PHP - You must enter a search term.";
-	//echo '<script>alert(" '.implode("\\n", $errors).' ");</script>'; //replace alerts with something different for sprint2
 }
 //Show the button to search again
 print '<form class="formStyle" name="frmSearchResults" id="searchResults" method ="Post" action="search.php">
-	<button type="submit" class="button" id="btnSubmit" name="btnSubmit">Search Again</button>	
-</form>
+		<button type="submit" class="button" id="btnSubmit" name="btnSubmit">Search Again</button>	
+		</form>
 </div>';
 print $page->getBottomSection();
 ?>

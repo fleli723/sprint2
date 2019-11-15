@@ -2,16 +2,10 @@
 /****************************************************************
 * This class is used to enter the users survey input data.      *
 * The form is validated with Javascript (if available on the    *
-* client) and also self-validates with a separate validation    *
-* function from the class folder.                               *
+* client) and validates with php serverside validation.         *
 *                                                               *
 * @author Tim, Filip and Corbin                                 *
 * @FileName: survey.php                                         *
-*                                                               *
-* Changelog:                                                    *
-* 20190926 - Original code constructed                          *
-* 20191031 - Updated code and removed php echo/error markers    *
-* 20191101 - Added php class form validation                    *
 *                                                               *
 ****************************************************************/
 session_start();
@@ -25,13 +19,12 @@ $page->finalizeTopSection();
 $page->finalizeBottomSection();
 print $page->getTopSection();
 include("topNavBar.php");
-
-print	'
+print '
 <div class="content">	
 	<form name="survey" action="surveyResult.php" method="post">
 		<div class="formboxes">
 			<span>Email:</span><br><br>
-			<input type="text" id="txtEmail" name="email" placeholder="Enter a valid Email">
+			<input type="text" id="txtEmail" name="email" value = "'; echo $_SESSION["username"]; print '" placeholder="Enter a valid Email">
 			<br>
 		</div>		
 		<div class="formboxes" id="Majors">
