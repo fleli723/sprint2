@@ -155,7 +155,7 @@ else
 				
 		//display table if admin
 		  $mode = 0;
-		  if ($mode ==1)
+		  if ($_SESSION['realname'])
 		  {
 			   //New datbase connection
 			$con = new DB();

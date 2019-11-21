@@ -19,6 +19,8 @@ if(!isset($_SESSION['userstatus'])) {
 			<ul class="nav">
 				<li><a href="index.php">Home</a></li>		
 				<li><a href="privacy.php">Privacy Policy</a></li>
+				<li><a href="search.php">Search</a></li>
+				<li><a href="survey.php">Survey</a></li>
 			</ul>';		
 }else{
 	//Show the Log out form
