@@ -7,7 +7,7 @@ $page->finalizeTopSection();
 $page->finalizeBottomSection();
 print $page->getTopSection();
 include("topNavBar.php");			
-print			"<div class=\"content\">";			
+print			'<div class= "content">';			
 print			"<h2> Privacy Policy </h2>
 				<p> The University of Wisconsin System Administration (UWSA) recognizes 
 				the importance of protecting the privacy of information provided to us. </p>";				
@@ -35,7 +35,7 @@ print			"<h3> Questions </h3>
 				<p>If you have any questions about this privacy statement, the practices of this 
 				site, or your use of this website,
 				please contact <a href=\"https://www.wisconsin.edu/privacy-policy/\">Webmaster</a>.</p>";			
-print			"</div>";
+print			'</div>';
 print $page->getBottomSection();
 
 ?>
