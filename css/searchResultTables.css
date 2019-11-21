@@ -40,8 +40,9 @@ table#t01 totalColumn tr {
 }
 
 .numbers {
-        text-align: right;
-    }
+    text-align: right;
+}
+	
 .r1 {
 	width:100px;
 }

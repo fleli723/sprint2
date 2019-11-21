@@ -37,7 +37,7 @@ h1 {
 	font-family: verdana;
 }
 
-#content {
+.content {
 	font-family: verdana;
 	padding-left: 2em;
 	padding-right: 2em;

@@ -5,7 +5,7 @@ require_once("classes/Template.php");
 
 $page = new Template("Home Page");
 $page->addHeadElement('<link rel="stylesheet" type="text/css" href="css/stylesheet.css">');
-$page->addHeadElement('<meta name="viewport" content="width=500, initial-scale=1">');
+$page->addHeadElement('<meta name="viewport" content="width=500", initial-scale="1">');
 $page->finalizeTopSection();
 $page->finalizeBottomSection();
 
@@ -13,8 +13,7 @@ print $page->getTopSection();
 
 include("topNavBar.php");
 			
-print 	'<div id="content">
-			<div id="content-wrap">
+print 	'<div class="content">
 				<h2> Lorem Ipsum </h2>
 				
 				<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rhoncus eget
@@ -23,7 +22,6 @@ print 	'<div id="content">
 				elementum mauris. Etiam mattis urna eget leo cursus gravida. Nunc sed posuere lectus.
 				Ut quis placerat nisi. Donec consequat, nulla vel rutrum ultrices, odio quam vehicula mi,
 				quis bibendum ligula eros id nisl. </p>
-			</div>
 		</div>';
 print $page->getBottomSection();
 
