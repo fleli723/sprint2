@@ -11,7 +11,7 @@ if(!isset($_SESSION['userstatus'])) {
 	}//endif
 	//Show the Login Form
 	print 	'<form name="userSearchBarForm" class = "login" action="loginResult.php"  method="post">
-				<input type="text" class = "loginText" id="username" name="usernameInput" value= "'; echo $loginError; print '" placeholder="Username">
+				<input type="text" class = "loginText" id="username" name="usernameInput" value= "'; /*echo $loginError;*/ print '" placeholder="Username">
 				<input type="password" class = "loginText" id="password" name="passwordInput" placeholder="Password">
 				<input class="buttonLog" type="submit" value="Login" id="BtnSubmit">
 			</form>
@@ -19,6 +19,8 @@ if(!isset($_SESSION['userstatus'])) {
 			<ul class="nav">
 				<li><a href="index.php">Home</a></li>		
 				<li><a href="privacy.php">Privacy Policy</a></li>
+				<li><a href="search.php">Search</a></li>
+				<li><a href="survey.php">Survey</a></li>
 			</ul>';		
 }else{
 	//Show the Log out form

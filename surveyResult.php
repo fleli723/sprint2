@@ -154,8 +154,8 @@ else
 				<h2>Please fill out the form entirely</h2>'; 
 				
 		//display table if admin
-		  $mode = 1;
-		  if ($mode ==1)
+		  $mode = 0;
+		  if ($_SESSION['realname'])
 		  {
 			   //New datbase connection
 			$con = new DB();

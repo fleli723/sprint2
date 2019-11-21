@@ -24,7 +24,7 @@ require_once("classes/DB.class.php");
 		}else{
 			$safeUserName = $con->dbEsc($userNameInput);
 			$safePassword = $con->dbEsc($passWordInput);			
-			$query = "Select username, userpass, realname, userstatus from users where username = '{$safeUserName}'";			
+			$query = "Select username, userpass, realname, userstatus from user where username = '{$safeUserName}'";			
 			$result = $con->dbCall($query);				
 			if (!$result) {
 				$_SESSION['userNameError'] = true;
