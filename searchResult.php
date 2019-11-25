@@ -77,6 +77,10 @@ if(isset($_POST['Search_Bar_Name']) && $_POST['Search_Bar_Name'] != '' && $_POST
 
 	
 		//change if to reflect web services change
+		if (property_exists($resultObject,"result")) {
+				print "works";
+		}
+
 		if (property_exists($resultObject->result,"ErrorMessage")) 
 		{ 
 			print '<h2>' .  $resultObject->result->ErrorMessage . ' </h2>';
