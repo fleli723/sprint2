@@ -25,14 +25,12 @@ else
 	{
 		//Sanitize the user input
 		$search = json_decode($userData);
-		//print json_encode($search);
 		
 		$searchTerm = $con->dbESC($search);
 		//query the db for the search results	
 		$query = "SELECT * FROM albums WHERE albums.albumArtist LIKE '%$searchTerm%' or albums.AlbumTitle LIKE '%$searchTerm%'";
 		
 		$result = $con->dbCall($query);
-		//print json_encode(array("result" => $result);
 		print json_encode($result);
 	}
 
