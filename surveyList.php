@@ -25,6 +25,21 @@ $page->finalizeBottomSection();
 print $page->getTopSection();
 include("topNavBar.php");
 
+		
+		if(!isset($_SESSION['username']))
+		{
+			print "NOT AUTHORIZED";
+			
+			exit;
+			
+		}
+		if(!(isset($_SESSION))|| $_SESSION['userstatus'] != "A" || $_SESSION['userstatus'] == null || $_SESSION['userstatus'] == "" )
+		{
+			print "NOT AUTHORIZED To non-Admins";
+			exit;
+			
+		}
+
 			$con = new DB();
 			//Check the connection
 			if (!$con->getConnStatus()) {
