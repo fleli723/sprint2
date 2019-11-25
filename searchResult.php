@@ -36,9 +36,6 @@ if(isset($_POST['Search_Bar_Name']) && $_POST['Search_Bar_Name'] != '' && $_POST
 	$dataJson = json_encode($_POST['Search_Bar_Name']);
 	$contentLength = strlen($dataJson);
 	
-	//TESTING
-	//print json_encode($_POST['Search_Bar_Name']);
-	
 	$header = array(
 		'Content-Type: application/json',
         'Accept: application/json',
@@ -77,16 +74,18 @@ if(isset($_POST['Search_Bar_Name']) && $_POST['Search_Bar_Name'] != '' && $_POST
 
 	
 		//change if to reflect web services change
-		if (property_exists($resultObject,"result")) {
-				print "works";
-		}
-
-		if (property_exists($resultObject->result,"ErrorMessage")) 
-		{ 
-			print '<h2>' .  $resultObject->result->ErrorMessage . ' </h2>';
-		}
-		else
-		{
+		//if (!property_exists($resultObject,"result")) {
+		//		print "works";
+		//		$resultss = property_exists($resultObject,"result");
+		//		print $resultss;
+		//}
+		//
+		//if (property_exists($resultObject->result,"ErrorMessage")) 
+		//{ 
+		//	print '<h2>' .  $resultObject->result->ErrorMessage . ' </h2>';
+		//}
+		//else
+		//{
 			print '<table id="t01">
 			<caption><h2>Search Results:</h2></caption>
 			<thead>
@@ -114,7 +113,7 @@ if(isset($_POST['Search_Bar_Name']) && $_POST['Search_Bar_Name'] != '' && $_POST
 			print '</tbody>
 			</table><br>';
 			
-		}//end if
+		//}//end if
 		
 		//$resultObject = false; //Reset result when done with it to prevent interfering with later calls.
 }//end if
