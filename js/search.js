@@ -13,7 +13,7 @@ function validateSearch() {
 		
 		document.getElementById("searchError").innerHTML ="<b style='color: red'></b>";
 		
-		alert("its empty");
+		//alert("its empty");
 		event.preventDefault();
 		return false;		
 	}
@@ -25,8 +25,8 @@ function validateSearch() {
 	else
 	{
 		event.preventDefault();
-		alert("the else");
-		document.getElementById("searchError").innerHTML ="<b style='color: red'>Empty 2</b>";
+		//alert("the else");
+		document.getElementById("searchError").innerHTML ="<b style='color: red'>Empty </b>";
 		//return true;
 		return false;
 	}//end if 	
