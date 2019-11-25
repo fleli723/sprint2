@@ -23,15 +23,10 @@ else
 	}
 	else
 	{
-			$con = new DB();
-	//Check the connection
-	if (!$con->getConnStatus()) {
-		print "\n\nAn error has occurred with connection\n";
-		print $page->getBottomSection();
-		exit;
-	}
-	else
-	{
+
+		//Sanitize the user input
+		$search = json_decode($userData);
+
 		
 		//$result = $con->dbCall($query);
 		//Check for DB Insert Errors
@@ -39,7 +34,6 @@ else
 		$query = "SELECT * FROM albums WHERE albums.albumArtist LIKE '%$searchTerm%' or albums.AlbumTitle LIKE '%$searchTerm%'";
 		
 		$result = $con->dbCall($query);
-		//print json_encode(array("result" => $result);
 		print json_encode($result);
 	}
 

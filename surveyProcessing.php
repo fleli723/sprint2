@@ -6,20 +6,14 @@ require_once("classes/DB.class.php");
 $userData = file_get_contents("php://input");
 
 
-if (is_null($userData) || empty($userData)) 
-{
-	print "You must enter valid values";
-	exit;
-}
-else
-{
+
+	
 	//New datbase connection
 	$con = new DB();
 	//Check the connection
-	if (!$con->getConnStatus()) 
-	{
+	if (!$con->getConnStatus()) {
 		print json_encode(array("result" => array("ErrorMessage" => "There was a problem, please try again")));
-		exit;
+		//exit;
 	}
 	else
 	{
@@ -43,10 +37,12 @@ else
 		//Get the insert Time for the record
 		$insertTime = date_create()->format('Y-m-d H:i:s');		
 		
+
+		
+		$search = json_decode($userData);
 		//Sanitize the user input 
 		$emailS = filter_var($email, FILTER_SANITIZE_EMAIL);
 		$emailSafe = $con->dbEsc($emailS);
-		
 		$major1S = filter_var($major1, FILTER_SANITIZE_STRING);
 		$major1Safe = $con->dbEsc($major1S);
 		$major2S = filter_var($major2, FILTER_SANITIZE_STRING);
@@ -69,24 +65,14 @@ else
 		
 		//Insert Record into the DB	
 		$query = "INSERT into surveys (email, major1, major2, major3, major4, major5, major6, grade, pizzaTopping, insertTime, clientIP) 
-			//VALUES ('{$emailSafe}', '{$major1Safe}', '{$major2Safe}', '{$major3Safe}', '{$major4Safe}', '{$major5Safe}', '{$major6Safe}', '{$gradeSafe}', '{$pizzaToppingSafe}', '{$insertTimeSafe}', '{$clientIPSafe}')";
-		//Sanitize the user input
-		$search = json_decode($userData);
-		//print json_encode($search);
-		
-		$searchTerm = $con->dbESC($search);
-		//query the db for the search results	
-		//$query = "SELECT * FROM albums WHERE albums.albumArtist LIKE '%$searchTerm%' or albums.AlbumTitle LIKE '%$searchTerm%'";
-		
-		$query = "INSERT into surveys (email, major1, major2, major3, major4, major5, major6, grade, pizzaTopping, insertTime, clientIP) 
+
 			VALUES ('{$emailSafe}', '{$major1Safe}', '{$major2Safe}', '{$major3Safe}', '{$major4Safe}', '{$major5Safe}', '{$major6Safe}', '{$gradeSafe}', '{$pizzaToppingSafe}', '{$insertTimeSafe}', '{$clientIPSafe}')";
 		$result = $con->dbCall($query);
+		//Check for DB Insert Errors
 		
-		$result = $con->dbCall($query);
-		//print json_encode(array("result" => $result);
 		print json_encode($result);
+	
 	}
 
-}
 
 ?>
