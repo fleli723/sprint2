@@ -24,6 +24,7 @@ $page->finalizeTopSection();
 $page->finalizeBottomSection();
 print $page->getTopSection();
 include("topNavBar.php");
+
 			$con = new DB();
 			//Check the connection
 			if (!$con->getConnStatus()) {
