@@ -6,13 +6,7 @@ require_once("classes/DB.class.php");
 $userData = file_get_contents("php://input");
 
 
-//if (is_null($userData) || empty($userData)) 
-//{
-//	print "You must enter valid values";
-//	exit;
-//}
-//else
-//{
+
 	
 	//New datbase connection
 	$con = new DB();
@@ -43,6 +37,7 @@ $userData = file_get_contents("php://input");
 		//Get the insert Time for the record
 		$insertTime = date_create()->format('Y-m-d H:i:s');		
 		
+
 		
 		$search = json_decode($userData);
 		//Sanitize the user input 
@@ -70,6 +65,7 @@ $userData = file_get_contents("php://input");
 		
 		//Insert Record into the DB	
 		$query = "INSERT into surveys (email, major1, major2, major3, major4, major5, major6, grade, pizzaTopping, insertTime, clientIP) 
+
 			VALUES ('{$emailSafe}', '{$major1Safe}', '{$major2Safe}', '{$major3Safe}', '{$major4Safe}', '{$major5Safe}', '{$major6Safe}', '{$gradeSafe}', '{$pizzaToppingSafe}', '{$insertTimeSafe}', '{$clientIPSafe}')";
 		$result = $con->dbCall($query);
 		//Check for DB Insert Errors

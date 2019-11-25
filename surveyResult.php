@@ -16,14 +16,12 @@
 session_start();
 require_once("classes/DB.class.php");
 require_once("classes/Template.php");
-
 $page = new Template("Survey Results Page");
 $page->addHeadElement('<link rel="stylesheet" type="text/css" href="css/stylesheet.css">');
 $page->addHeadElement('<link rel="stylesheet" type="text/css" href="css/surveyResultTables.css">');
 $page->finalizeTopSection();
 $page->finalizeBottomSection();
 print $page->getTopSection();
-
 extract($_POST); //needed to extract the $_POST for the checkbox consistency check to boolean values
 include("topNavBar.php");
 if(isset($email) && filter_var($email,FILTER_VALIDATE_EMAIL) && !empty($major) && !empty($grade) && !empty($pizzaTopping)) { //and the email variable is set
