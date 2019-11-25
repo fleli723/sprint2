@@ -13,9 +13,10 @@ print	'
 	<form name="userSearchBarForm" action="searchResult.php"  method="post">
 		<div class="formboxes">
 			<span>Search: </span><br><br>
-			<input type="text" id="txtSearchBar" name="Search_Bar_Name" placeholder="Title or Artist Name..."><br>
+			<input type="text" id="txtSearchBar" name="SearchBarName" placeholder="Title or Artist Name..."><br>
 		</div><br>	
-		<input class="button" type="submit" value="Submit" id="BtnSubmit" onclick="validateForm()" >
+		<span id="searchError"</span>
+		<input class="button" type="submit" value="Submit" id="BtnSubmit" onclick="validateSearch()" >
 	</form>
 </div>';
 print $page->getBottomSection();

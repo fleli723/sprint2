@@ -1,20 +1,34 @@
-var $ = function(id) {	return document.getElementById(id);	}//end $	
+
+//var $ = function(id) {	return document.getElementById(id);	}//end $	
 window.onload = function() {	
-	$("txtSearchBar").focus();//Gives the search field the FOCUS on load			 
+	///$("txtSearchBar").focus();//Gives the search field the FOCUS on load			 
 }//end window.onload
  
 /*validateSearch will validate the search bar */
-function validateSearch() {	   
+function validateSearch() {
+	
+	let userSearch = document.forms["userSearchBarForm2"]["SearchBarName"].value;	
 	var ptr = $("txtSearchBar");
-	if (ptr.value == "")   {
-		alert("Entry cannot be empty");		
+	if (userSearch == "" || userSearch == null || ptr.value =="")   {
+		
+		document.getElementById("searchError").innerHTML ="<b style='color: red'></b>";
+		
+		alert("its empty");
+		event.preventDefault();
+		return false;		
 	}
 	else if(ptr.value == " "){
-		alert("Entry only contained a space");		
+		document.getElementById("searchError").innerHTML ="<b style='color: red'>Empty 2</b>";
+		
+		alert("its empty 2");		
 	}	
 	else
 	{
-		return true;
+		event.preventDefault();
+		alert("the else");
+		document.getElementById("searchError").innerHTML ="<b style='color: red'>Empty 2</b>";
+		//return true;
+		return false;
 	}//end if 	
 }//end validateSearch
 
@@ -25,8 +39,9 @@ function validateForm() {
 			validateSearch())) {  
 		return true;   //Go ahead and submit form
 	}else {
-		//alert("Please correct the designated errors and submit again.");
+		
 		event.preventDefault();
+		alert("the else");
 		
 		return false;  //Cancel the form submit
 	}//end if
