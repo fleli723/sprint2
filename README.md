@@ -1,4 +1,4 @@
 # sprint2
 
 To view the website:
-https://cnmtsrv2.uwsp.edu/~cvida526/sprint2/
+https://cnmtsrv2.uwsp.edu/~fleli723/sprint2/
