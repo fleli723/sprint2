@@ -32,13 +32,16 @@ else
 	}
 	else
 	{
+		$userNameInput = $_POST['usernameInput'];
+		$passWordInput = $_POST['passwordInput'];
 		
 		//$result = $con->dbCall($query);
 		//Check for DB Insert Errors
 		//query the db for the search results	
-		$query = "SELECT * FROM albums WHERE albums.albumArtist LIKE '%$searchTerm%' or albums.AlbumTitle LIKE '%$searchTerm%'";
-		
-		$result = $con->dbCall($query);
+		$safeUserName = $con->dbEsc($userNameInput);
+			$safePassword = $con->dbEsc($passWordInput);			
+			$query = "Select username, userpass, realname, userstatus from user where username = '{$safeUserName}'";
+			$result = $con->dbCall($query);
 		//print json_encode(array("result" => $result);
 		print json_encode($result);
 	}
