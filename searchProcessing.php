@@ -18,19 +18,22 @@ else
 	//Check the connection
 	if (!$con->getConnStatus()) 
 	{
-		print "\n\nAn error has occurred with connection\n";
+		print json_encode(array("result" => array("ErrorMessage" => "There was a problem, please try again")));
 		exit;
 	}
 	else
 	{
 		//Sanitize the user input
 		$search = json_decode($userData);
+		//print json_encode($search);
+		
 		$searchTerm = $con->dbESC($search);
 		//query the db for the search results	
 		$query = "SELECT * FROM albums WHERE albums.albumArtist LIKE '%$searchTerm%' or albums.AlbumTitle LIKE '%$searchTerm%'";
 		
-		//$result = $con->dbCall($query);
-		print json_encode(array("result" => $con->dbCall($query));
+		$result = $con->dbCall($query);
+		//print json_encode(array("result" => $result);
+		print json_encode($result);
 	}
 
 }

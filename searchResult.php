@@ -65,22 +65,21 @@ if(isset($_POST['Search_Bar_Name']) && $_POST['Search_Bar_Name'] != '' && $_POST
 		curl_close($ch);
 	}
 	$resultObject = json_decode($return);
+
 	
-	var_dump($resultObject);
-	
-	if(!is_object($resultObject))
-	{
-	print "Something went wrong with decoding the return";
-	print $httpStatus;
-	curl_close($ch);
+	//if(!is_object($resultObject))
+	//{
+	//print "Something went wrong with decoding the return";
+	//print $httpStatus;
+	//curl_close($ch);
 	//exit;
-	}
+	//}
 
 	
 		//change if to reflect web services change
-		if (!$resultObject) 
+		if (property_exists($resultObject->result,"ErrorMessage")) 
 		{ 
-			print '<h2>No results match your query</h2>'; //REPLACE W/ WEB SERVICE
+			print '<h2>' .  $resultObject->result->ErrorMessage . ' </h2>';
 		}
 		else
 		{
@@ -96,15 +95,18 @@ if(isset($_POST['Search_Bar_Name']) && $_POST['Search_Bar_Name'] != '' && $_POST
 			</tr>
 			</thead><tbody>
 			<tbody>';
-			foreach ($resultObject as $row) {	
+			
+			foreach ($resultObject as $row) {
+				
 			print '<tr>
-				<td class = "r1">';echo $row["albumId"];              print '</td>';
-				print ' <td class = "r2">';echo $row["albumArtist"]; print'</td>';
-				print ' <td class = "r3">';echo $row["albumTitle"];  print' </td>';
-				print ' <td class = "r4">';echo $row["duration"];  print' </td>';
-				print ' <td class = "r5"> <a href="'; echo $row["albumLink"];  print' target = "_blank"><img src="images/amazon-badge.png" width="150px" height="20px" title ="Buy at Amazon" alt="Buy at Amazon"></a> </td>';
+				<td class = "r1">';echo $row->albumId;              print '</td>';
+				print ' <td class = "r2">';echo $row->albumArtist; print'</td>';
+				print ' <td class = "r3">';echo $row->albumTitle;  print' </td>';
+				print ' <td class = "r4">';echo $row->duration;  print' </td>';
+				print ' <td class = "r5"> <a href="'; echo $row->albumLink;  print' target = "_blank"><img src="images/amazon-badge.png" width="150px" height="20px" title ="Buy at Amazon" alt="Buy at Amazon"></a> </td>';
 				print' </tr>';
 			}//end foreach
+
 			print '</tbody>
 			</table><br>';
 			
